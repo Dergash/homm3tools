@@ -147,7 +147,7 @@ int creature_type_conv_table_roe[] = {
     H3M_CREATURE_GOLD_DRAGON,   // Rust Dragon -----------------> Gold Dragon
     H3M_CREATURE_ARCH_MAGE,     // Enchanter ---------------------> Archmage
     H3M_CREATURE_MARKSMAN,      // Sharpshooter -------------------> Marksman
-    H3M_CREATURE_HALFLING,      // Halfling -----------------------> Archer
+    H3M_CREATURE_ARCHER,        // Halfling -----------------------> Archer
     H3M_CREATURE_PIKEMAN,       // Peasant -------------------------> Pikeman
     H3M_CREATURE_WOLF_RIDER,    // Boar -------------------------> Wolf Rider
     H3M_CREATURE_DIAMOND_GOLEM, // Mummy ---------------------> Diamond Golem
@@ -198,7 +198,7 @@ int creature_multiplier_table_roe[] = {
     1,                          // Naga
     1,                          // Naga Queen
     1,                          // Giant
-    1,                          // Titan
+    1,                          // Titan45
     1,                          // Imp
     1,                          // Familiar
     1,                          // Gog
@@ -302,6 +302,154 @@ int creature_multiplier_table_roe[] = {
     1,                          // Nomad
     1,                          // Rogue
     1,                          // Troll ----------------------> Ogre
+};
+
+int creature_appearence_table_sod[] = {
+    "AvWPike.def",              // Pikeman
+    "AVWpikx0.def",             // Halberdier
+    "AvWLCrs.def",              // Archer
+    "AvWHCrs.def",              // Marksman
+    "AvWGrif.def",              // Griffin
+    "AVWgrix0.def",             // Royal Griffin
+    "AVWswrd0.def",             // Swordsman
+    "AVWswrx0.def",             // Crusader
+    "AvWMonk.def",              // Monk
+    "AVWmonx0.def",             // Zealot
+    "AVWcvlr0.def",             // Cavalier
+    "AVWcvlx0.def",             // Champion
+    "AvWAngl.def",              // Angel
+    "AvWArch.def",              // Archangel
+    "AVWcent0.def",             // Centaur
+    "AVWcenx0.def",             // Centaur Captain
+    "AVWdwrf0.def",             // Dwarf
+    "AVWdwrx0.def",             // Battle Dwarf
+    "AVWelfw0.def",             // Wood Elf
+    "AVWelfx0.def",             // Grand Elf
+    "AVWpega0.def",             // Pegasus
+    "AVWpegx0.def",             // Silver Pegasus
+    "AVWtree0.def",             // Dendroid Guard
+    "AVWtrex0.def",             // Dendroid Soldier
+    "AVWunic0.def",             // Unicorn
+    "AVWunix0.def",             // War Unicorn
+    "AVWdrag0.def",             // Green Dragon
+    "AVWdrax0.def",             // Gold Dragon
+    "AVWgrem0.def",             // Gremlin
+    "AVWgrex0.def",             // Master Gremlin
+    "AVWgarg0.def",             // Stone Gargoyle
+    "AVWgarx0.def",             // Obsidian Gargoyle
+    "AVWgolm0.def",             // Stone Golem
+    "AVWgolx0.def",             // Iron Golem
+    "AVWmage0.def",             // Mage
+    "AVWmagx0.def",             // Arch Mage
+    "AVWgeni0.def",             // Genie
+    "AVWgenx0.def",             // Master Genie
+    "AVWnaga0.def",             // Naga
+    "AVWnagx0.def",             // Naga Queen
+    "AVWtitn0.def",             // Giant
+    "AVWtitx0.def",             // Titan
+    "AVWimp0.def",              // Imp
+    "AVWimpx0.def",             // Familiar
+    "AVWgog0.def",              // Gog
+    "AVWgogx0.def",             // Magog
+    "AVWhoun0.def",             // Hell Hound
+    "AVWhoux0.def",             // Cerberus
+    "AVWdemn0.def",             // Demon
+    "AVWdemx0.def",             // Horned Demon
+    "AVWpitf0.def",             // Pit Fiend
+    "AVWpitx0.def",             // Pit Lord
+    "AVWefre0.def",             // Efreeti
+    "AVWefrx0.def",             // Efreeti Sultan
+    "AVWdevl0.def",             // Devil
+    "AVWdevx0.def",             // Arch Devil
+    "AVWskel0.def",             // Skeleton
+    "AVWskex0.def",             // Skeleton Warrior
+    "AVWzomb0.def",             // Walking Dead
+    "AVWzomx0.def",             // Zombie
+    "AvWWigh.def",              // Wight
+    "AVWwigx0.def",             // Wraith
+    "AVWvamp0.def",             // Vampire
+    "AVWvamx0.def",             // Vampire Lord
+    "AVWlich0.def",             // Lich
+    "AVWlicx0.def",             // Power Lich
+    "AVWbkni0.def",             // Black Knight
+    "AVWbknx0.def",             // Dread Knight
+    "AVWbone0.def",             // Bone Dragon
+    "AVWbonx0.def",             // Ghost Dragon
+    "AVWtrog0.def",             // Troglodyte
+    "AvWInfr.def",              // Infernal Troglodyte
+    "AVWharp0.def",             // Harpy
+    "AVWharx0.def",             // Harpy Hag
+    "AVWbehl0.def",             // Beholder
+    "AVWbehx0.def",             // Evil Eye
+    "AvWMeds.def",              // Medusa
+    "AVWmedx0.def",             // Medusa Queen
+    "AvWMino.def",              // Minotaur
+    "AVWminx0.def",             // Minotaur King
+    "AVWmant0.def",             // Manticore
+    "AVWmanx0.def",             // Scorpicore
+    "AvWRDrg.def",              // Red Dragon
+    "AVWddrx0.def",             // Black Dragon
+    "AVWgobl0.def",             // Goblin
+    "AVWgobx0.def",             // Hobgoblin
+    "AVWwolf0.def",             // Wolf Rider
+    "AVWwolx0.def",             // Wolf Raider
+    "AVWorc0.def",              // Orc
+    "AVWorcx0.def",             // Orc Chieftan
+    "AVWogre0.def",             // Ogre
+    "AVWogrx0.def",             // Ogre Mage
+    "AVWroc0.def",              // Roc
+    "AVWrocx0.def",             // Thunderbird
+    "AVWcycl0.def",             // Cyclops
+    "AVWcycx0.def",             // Cyclops King
+    "AVWbhmt0.def",             // Behemoth
+    "AVWbhmx0.def",             // Ancient Behemoth
+    "AVWgnll0.def",             // Gnoll
+    "AVWgnlx0.def",             // Gnoll Maradeur
+    "AvWLizr.def",              // Lizardman
+    "AVWlizx0.def",             // Lizard Warrior
+    "AvWGorg.def",              // Gorgon
+    "AVWgorx0.def",             // Mighty Gorgon
+    "AvWDFly.def",              // Serpent Fly
+    "AvWDFir.def",              // Dragon Fly
+    "AvWBasl.def",              // Basilisk
+    "AvWGBas.def",              // Greater Basilisk
+    "AvWWyvr.def",              // Wyvern
+    "AVWwyvx0.def",             // Wyvern Monarch
+    "AvWHydr.def",              // Hydra
+    "AVWhydx0.def",             // Chaos Hydra
+    "AVWelma0.def",             // Air Elemental
+    "AVWelme0.def",             // Earth Elemental
+    "AVWelmf0.def",             // Fire Elemental
+    "AVWelmw0.def",             // Water Elemental
+    "AVWglmg0.def",             // Gold Golem
+    "AVWglmd0.def",             // Diamon Golem
+    "AVWpixie.def",             // Pixie
+    "AVWsprit.def",             // Sprite
+    "AVWpsye.def",              // Psychic Elemental
+    "AVWmagel.def",             // Magic Elemental
+    "AVWmrnd0.def",             // NOT USED()
+    "AVWicee.def",              // Ice Elemental
+    "AVWmrnd0.def",             // NOT USED()
+    "AVWstone.def",             // Magma Elemental
+    "AVWmrnd0.def",             // NOT USED()
+    "AVWstorm.def",             // Storm Elemental
+    "AVWmrnd0.def",             // NOT USED()
+    "AVWnrg.def",               // Energy Elemental
+    "AVWfbird.def",             // Firebird
+    "AVWphx.def",               // Phoenix
+    "AVWazure.def",             // Azure Dragon
+    "AVWcdrg.def",              // Crystal Dragon
+    "AVWfdrg.def",              // Faerie Dragon
+    "AVWrust.def",              // Rust Dragon
+    "AVWench.def",              // Enchanter
+    "AVWsharp.def",             // Sharpshooter
+    "AVWhalf.def",              // Halfling
+    "AVWpeas.def",              // Peasant
+    "AVWboar.def",              // Boar
+    "AVWmumy.def",              // Mummy
+    "AVWnomd.def",              // Nomad
+    "AVWrog.def",               // Rogue
+    "AVWtrll.def"               // Troll
 };
 
 #endif

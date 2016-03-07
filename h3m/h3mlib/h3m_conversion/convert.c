@@ -306,10 +306,11 @@ static int _convert_oa_roe(struct H3MLIB_CTX *ctx_in,
                 object_number];
 
             free(entry_out->header.def);
-            entry_out->header.def_size = sizeof("AVWmrnd0.def");
+            char* newAppearence = creature_appearence_table_sod[entry_out->body.object_number];
+            entry_out->header.def_size = strlen(newAppearence);
             entry_out->header.def = malloc(entry_out->header.def_size);
             snprintf((char *)entry_out->header.def, entry_out->header.def_size,
-                "%s", "AVWmrnd0.def");
+                "%s", newAppearence);
         }
         // Conflux hack, Conflux->Random Town
         else if (META_OBJECT_TOWN_ABSOD == oa_type) {
