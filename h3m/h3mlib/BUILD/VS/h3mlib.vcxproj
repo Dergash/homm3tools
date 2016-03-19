@@ -27,6 +27,7 @@
     <ClCompile Include="..\..\gen\passability\pass_table_WATER.c" />
     <ClCompile Include="..\..\h3mlib.c" />
     <ClCompile Include="..\..\h3m_conversion\convert.c" />
+    <ClCompile Include="..\..\h3m_conversion\conv_config.c" />
     <ClCompile Include="..\..\h3m_editing\default_od_body.c" />
     <ClCompile Include="..\..\h3m_editing\h3mlib_alg_od_text.c" />
     <ClCompile Include="..\..\h3m_editing\h3mlib_impassable.c" />
@@ -84,6 +85,7 @@
     <ClInclude Include="..\..\h3m_constants\h3m_skill.h" />
     <ClInclude Include="..\..\h3m_constants\h3m_terrain.h" />
     <ClInclude Include="..\..\h3m_conversion\conv_tables_creatures.h" />
+    <ClInclude Include="..\..\h3m_conversion\conv_config.h" />
     <ClInclude Include="..\..\h3m_editing\default_od_body.h" />
     <ClInclude Include="..\..\h3m_editing\h3mlib_alg_od_text.h" />
     <ClInclude Include="..\..\h3m_min_maps\min_ab.h" />

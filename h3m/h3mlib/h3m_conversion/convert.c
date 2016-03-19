@@ -11,6 +11,7 @@
 #include "../meta/meta_push_od.h"
 #include "../h3m_structures/object_attributes/h3m_oa.h"
 
+#include "../h3m_conversion/conv_config.h"
 // Currently creature conversion is only done for creatures inside objects
 // TODO also convert creature objects on the map
 #include "conv_tables_creatures.h"
@@ -236,6 +237,8 @@ static int _convert_oa_roe(struct H3MLIB_CTX *ctx_in,
     }
     ctx_out->h3m.oa.entries = calloc(max_count, sizeof(*(entry_out)));
 
+    struct H3M_MONSTER_CONVERSION_CONFIG* monster_conversion_config;
+    monster_conversion_config = read_monster_conversion_config(monster_conversion_config_pat2h);
     for (i = 0; i < max_count; ++i) {
         body_size_delta = 0;
         convert_binary_compatible = 0;
@@ -301,9 +304,24 @@ static int _convert_oa_roe(struct H3MLIB_CTX *ctx_in,
 #endif
 
         if (META_OBJECT_MONSTER_ABSOD == oa_type) {
-            entry_out->body.object_number =
-                (uint32_t) creature_type_conv_table_roe[entry_out->body.
-                object_number];
+
+            int monsterIdFromConfig = -1;
+            if (monster_conversion_config->size > 0) {
+                for (int i = 0; i < monster_conversion_config->size; i++) {
+                    if (entry_out->body.object_number == monster_conversion_config->records[i].monsterId_in) {
+                        monsterIdFromConfig = monster_conversion_config->records[i].monsterId_out;
+                    }
+                }
+            }
+            if (monsterIdFromConfig < 0)
+            {
+                entry_out->body.object_number =
+                    (uint32_t)creature_type_conv_table_roe[entry_out->body.
+                    object_number];
+            }
+            else {
+                entry_out->body.object_number = monsterIdFromConfig;
+            }
 
             free(entry_out->header.def);
             char* newAppearence = creature_appearence_table_sod[entry_out->body.object_number];
@@ -339,7 +357,7 @@ static int _convert_oa_roe(struct H3MLIB_CTX *ctx_in,
 
         ++count;
     }
-
+    free(monster_conversion_config);
     ctx_out->h3m.oa.count = count;
 
     return 0;
